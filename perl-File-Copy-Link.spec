@@ -9,7 +9,7 @@ Summary:	File::Copy::Link - Perl extension for replacing a link by a copy of the
 #Summary(pl):	
 Name:		perl-File-Copy-Link
 Version:	0.110
-Release:	0.1
+Release:	0.2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -60,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{_bindir}/copylink
+%attr(755,root,root) %{_bindir}/copylink
 %{perl_vendorlib}/File/Copy/*.pm
 %{_mandir}/man3/File::Copy*
 %{_mandir}/man1/copylink*
