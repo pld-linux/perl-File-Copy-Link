@@ -6,19 +6,18 @@
 %define	pdir	File
 %define	pnam	Copy-Link
 Summary:	File::Copy::Link - Perl extension for replacing a link by a copy of the linked file
-#Summary(pl):	
+Summary(pl.UTF-8):	File::Copy::Link - rozszerzenie Perla do zastępowania dowiązania kopią pliku
 Name:		perl-File-Copy-Link
 Version:	0.110
 Release:	0.3
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/File/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	b434d5069cf108950ed785565916c2b0
+URL:		http://search.cpan.org/dist/File-Copy-Link/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with tests}
-%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,16 +26,25 @@ This module is mostly a wrapper round "File::Spec::Link::linked" and
 "File::Copy::copy", the functionality is available in a command line
 script copylink.
 
-# %description -l pl
-# TODO
+%description -l pl.UTF-8
+Ten moduł to w większości obudowanie na "File::Spec::Link::linked" i
+"File::Copy::copy"; jego funkcjonalność jest dostępna z linii poleceń
+poprzez skrypt copylink.
 
 %package -n perl-File-Spec-Link
 Summary:	File::Spec::Link - Perl extension for reading and resolving symbolic links
+Summary(pl.UTF-8):	File::Spec::Link - rozszerzenie Perla do odczytu i rozwiązywania dowiązań symbolicznych
 Group:		Development/Languages/Perl
 
 %description -n perl-File-Spec-Link
 File::Spec::Link is an extension to File::Spec, adding methods for
-resolving symbolic links; it was created to implement File::Copy::Link.
+resolving symbolic links; it was created to implement
+File::Copy::Link.
+
+%description -n perl-File-Spec-Link -l pl.UTF-8
+File::Spec::Link to rozszerzenie File::Spec dodające metody do
+rozwiązywania dowiązań symbolicznych; zostało stworzone w celu
+zaimplementowania File::Copy::Link.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -68,5 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/copylink*
 
 %files -n perl-File-Spec-Link
+%defattr(644,root,root,755)
 %{perl_vendorlib}/File/Spec/Link.pm
 %{_mandir}/man3/File::Spec*
