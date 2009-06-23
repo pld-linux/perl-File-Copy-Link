@@ -8,13 +8,13 @@
 Summary:	File::Copy::Link - Perl extension for replacing a link by a copy of the linked file
 Summary(pl.UTF-8):	File::Copy::Link - rozszerzenie Perla do zastępowania dowiązania kopią pliku
 Name:		perl-File-Copy-Link
-Version:	0.110
-Release:	0.3
+Version:	0.112
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/File/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b434d5069cf108950ed785565916c2b0
+# Source0-md5:	3fcbaf38c41750b68c3432048647b8ba
 URL:		http://search.cpan.org/dist/File-Copy-Link/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
