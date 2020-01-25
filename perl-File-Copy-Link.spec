@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	File
 %define	pnam	Copy-Link
 Summary:	File::Copy::Link - Perl extension for replacing a link by a copy of the linked file
