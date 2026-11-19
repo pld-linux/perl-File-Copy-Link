@@ -7,14 +7,15 @@
 Summary:	File::Copy::Link - Perl extension for replacing a link by a copy of the linked file
 Summary(pl.UTF-8):	File::Copy::Link - rozszerzenie Perla do zastępowania dowiązania kopią pliku
 Name:		perl-File-Copy-Link
-Version:	0.113
+Version:	0.200
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/File/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	5552b64bf90fd59833b9a55d71e3a907
-URL:		http://search.cpan.org/dist/File-Copy-Link/
+Source0:	https://www.cpan.org/authors/id/R/RM/RMBARKER/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	71c58d107c328624e382101805526a91
+URL:		https://metacpan.org/release/File-Copy-Link
+BuildRequires:	perl-Module-Build >= 0.40
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
@@ -53,8 +54,6 @@ zaimplementowania File::Copy::Link.
 	destdir=$RPM_BUILD_ROOT \
 	installdirs=vendor
 ./Build
-# fix perl path
-sed -ie 's$#!perl$#!/usr/bin/perl$' copylink
 
 %{?with_tests:./Build test}
 
@@ -62,6 +61,9 @@ sed -ie 's$#!perl$#!/usr/bin/perl$' copylink
 rm -rf $RPM_BUILD_ROOT
 
 ./Build install
+
+# upstream script has a bare #!perl shebang
+sed -i -e '1s,^#!perl,#!%{__perl},' $RPM_BUILD_ROOT%{_bindir}/copylink
 
 %clean
 rm -rf $RPM_BUILD_ROOT
